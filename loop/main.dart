@@ -1,14 +1,14 @@
 void main() {
 // for loop
 // // (initialization,condition,increment/decrement)
-  // for (var i = 1; i <= 100; i++) {
-  //   // print("this is for loop == $i");
-  //   // if (i % 2 != 0) {
-  //   print("2 * $i = ${2 * i}");
-  //   // }
-  // }
+  for (var i = 1; i <= 100; i++) {
+    // print("this is for loop == $i");
+    // if (i % 2 != 0) {
+    print("2 * $i = ${2 * i}");
+    // }
+  }
 
-  // List<String> stdNames = ["Hamza", "Ali", "Bilal", "Shoaib", "Owais"];
+  List<String> stdNames = ["Hamza", "Ali", "Bilal", "Shoaib", "Owais"];
   // List<Map> stdData = [
   //   {
   //     "studentName": "Hamza",
@@ -35,9 +35,12 @@ void main() {
   //     "subjectName": ["Maths", "Urdu", 'English', "Chemistry", "Physics"]
   //   },
   // ];
-  // for (var i = 0; i < stdNames.length; i++) {
-  //   print("this is list ${stdNames[i]}");
-  // }
+  for (var i = 0; i < stdNames.length; i++) {
+    print("this is list ${stdNames[i]}");
+  }
+  for (var stdN in stdNames) {
+    print("this is list ${stdN}");
+  }
   // for (var std in stdData) {
   //   print("=======================");
   //   print("Name is ${std["studentName"]}");
@@ -50,13 +53,30 @@ void main() {
   //   print("=         =");
   // }
 
-  // while loop
-  // int i = 1;
-  // while (i < 8) {
-  //   print("Hello");
-  //   i++;
-  // }
 
+  
+  for (var i = 1; i <= 100; i++) {
+    print("2 * $i = ${2 * i}");
+  }
+
+  for (var i = 0; i < stdNames.length; i++) {
+    print("this is list ${stdNames[i]}");
+  }
+  for (var stdN in stdNames) {
+    print("this is list ${stdN}");
+  }
+
+
+
+
+
+
+  // while loop
+  int id = 1;
+  while (id < 8) {
+    print("Hello");
+    id++;
+  }
   // Do While loop
   int i = 1;
   do {

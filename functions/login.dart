@@ -1,0 +1,4 @@
+bool loginUser() {
+  
+  return true;
+}
