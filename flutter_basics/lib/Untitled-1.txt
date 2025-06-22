@@ -1,0 +1,9 @@
+Column => mainAxisAlignment => Vertical
+Column => crossAxisAlignment => Horizontal
+Row => mainAxisAlignment => Horizontal
+Row => crossAxisAlignment => Vertical
+
+
+Images
+1) Network Image => "https:abc.com/image.png"
+2) Asset Image => "asset/images/image.png"
