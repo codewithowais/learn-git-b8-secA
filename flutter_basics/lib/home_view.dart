@@ -9,7 +9,7 @@ class HomeView extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.blue,
         leading: Icon(Icons.add),
-        title: Text("My App"),
+        title: Text("Home View"),
         actions: [Icon(Icons.delete), Icon(Icons.delete)],
       ),
       body: SingleChildScrollView(

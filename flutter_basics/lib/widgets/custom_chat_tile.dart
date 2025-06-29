@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basics/contact_view.dart';
 
-Widget customChatTile(color, title, msg) {
+Widget customChatTile(color, title, msg, context) {
   return ListTile(
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const ContactView(),
+        ),
+      );
+    },
     leading: CircleAvatar(
       backgroundImage: AssetImage('assets/images/audi.jpg'),
       // backgroundImage: NetworkImage(
