@@ -16,13 +16,6 @@ class _PostViewState extends State<PostView> {
       'content': postContentController.text,
       'images': [
         'https://cdn.pixabay.com/photo/2016/03/11/02/08/speedometer-1249610_1280.jpg',
-        'https://cdn.pixabay.com/photo/2016/03/11/02/08/speedometer-1249610_1280.jpg',
-        'https://cdn.pixabay.com/photo/2016/03/11/02/08/speedometer-1249610_1280.jpg',
-        'https://cdn.pixabay.com/photo/2016/03/11/02/08/speedometer-1249610_1280.jpg',
-        'https://cdn.pixabay.com/photo/2016/03/11/02/08/speedometer-1249610_1280.jpg',
-        'https://cdn.pixabay.com/photo/2016/03/11/02/08/speedometer-1249610_1280.jpg',
-        'https://cdn.pixabay.com/photo/2016/03/11/02/08/speedometer-1249610_1280.jpg',
-        'https://cdn.pixabay.com/photo/2016/03/11/02/08/speedometer-1249610_1280.jpg',
       ]
     });
     postContentController.clear();
@@ -30,12 +23,27 @@ class _PostViewState extends State<PostView> {
     print(posts);
   }
 
+  deletePost(index) {
+    posts.removeAt(index);
+    setState(() {});
+  }
+
+  editPost(index, data) {
+    posts[index] = {
+      'content': data['content'],
+      'urls': data['urls'],
+    };
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Post Screen"),
+        backgroundColor: Color(0xffD3D3D3),
       ),
+      backgroundColor: Color(0xffD3D3D3),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -55,23 +63,30 @@ class _PostViewState extends State<PostView> {
               child: ListView.builder(
             itemCount: posts.length,
             itemBuilder: (context, index) {
-              return Container(
+              return Card(
                 child: Column(
                   children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
+                        IconButton(onPressed: () {}, icon: Icon(Icons.delete)),
+                      ],
+                    ),
                     Text(
                       "${posts[index]['content']}",
                     ),
                     Image.network(
                       posts[index]['images'][0],
                     ),
-                    Container(
-                      height: 100,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: NetworkImage(posts[index]['images'][0]),
-                        ),
-                      ),
-                    )
+                    // Container(
+                    //   height: 100,
+                    //   decoration: BoxDecoration(
+                    //     image: DecorationImage(
+                    //       image: NetworkImage(posts[index]['images'][0]),
+                    //     ),
+                    //   ),
+                    // )
                   ],
                 ),
               );
