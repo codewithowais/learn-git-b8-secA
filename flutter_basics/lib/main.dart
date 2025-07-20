@@ -5,6 +5,7 @@ import 'package:flutter_basics/contacts_list_view.dart';
 import 'package:flutter_basics/home_view.dart';
 import 'package:flutter_basics/login_view.dart';
 import 'package:flutter_basics/post_view.dart';
+import 'package:flutter_basics/reels/reels_view.dart';
 import 'package:flutter_basics/splash_view.dart';
 import 'package:flutter_basics/temp_view.dart';
 import 'package:flutter_basics/test_stack.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: TestStack(),
+      home: ReelsView(),
     );
   }
 }
