@@ -2,19 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_basics/reels/simple_video_player.dart';
 
 class ReelsView extends StatelessWidget {
-   ReelsView({super.key});
+  ReelsView({super.key});
 
   final List<String> videoUrsl = [
-
+    'https://cdn.pixabay.com/video/2024/08/30/228847_large.mp4',
+    'https://cdn.pixabay.com/video/2025/04/29/275633_large.mp4',
+    'https://cdn.pixabay.com/video/2025/05/13/278750_large.mp4',
   ];
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: PageView.builder(
         scrollDirection: Axis.vertical,
         itemCount: videoUrsl.length,
-        itemBuilder: (context , index) {
+        itemBuilder: (context, index) {
           return SimpleVideoPlayer(videoUrl: videoUrsl[index]);
         },
       ),
