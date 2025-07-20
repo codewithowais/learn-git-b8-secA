@@ -7,6 +7,7 @@ import 'package:flutter_basics/login_view.dart';
 import 'package:flutter_basics/post_view.dart';
 import 'package:flutter_basics/splash_view.dart';
 import 'package:flutter_basics/temp_view.dart';
+import 'package:flutter_basics/test_stack.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashView(),
+      home: TestStack(),
     );
   }
 }
