@@ -1,44 +1,35 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/chat_view.dart';
-import 'package:flutter_basics/signup_view.dart';
+import 'package:flutter_basics/login_view.dart';
 
-class LoginView extends StatelessWidget {
-  LoginView({super.key});
+class SignupView extends StatelessWidget {
+  SignupView({super.key});
 
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
 
-  login(context) async {
-    print(emailController.text);
-    print(passController.text);
-    // if (emailController.text == 'Admin@gmail.com' &&
-    //     passController.text == '123456') {
-    //   Navigator.pushReplacement(
-    //     context,
-    //     MaterialPageRoute(
-    //       builder: (context) => ChatView(),
-    //     ),
-    //   );
-    // }
-
+  signUp(context) async {
     try {
-      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+      final credential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailController.text,
         password: passController.text,
       );
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => ChatView(),
+          builder: (context) => LoginView(),
         ),
       );
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        print('No user found for that email.');
-      } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
+      if (e.code == 'weak-password') {
+        print('The password pr ovided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
       }
+    } catch (e) {
+      print(e);
     }
   }
 
@@ -46,7 +37,7 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Login View"),
+        title: Text("SignUp View"),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -63,18 +54,18 @@ class LoginView extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              login(context);
+              signUp(context);
             },
-            child: Text("Login"),
+            child: Text("SignUp"),
           ),
           TextButton(
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SignupView()),
+                MaterialPageRoute(builder: (context) => LoginView()),
               );
             },
-            child: Text("Don't have an account? Create a new One"),
+            child: Text("Already have an account? login."),
           ),
         ],
       ),
